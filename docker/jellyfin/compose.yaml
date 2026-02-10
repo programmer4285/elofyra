@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:10
+    container_name: jellyfin
+    user: "995:1001"  # jellyfin:media
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /mnt/alexandria/appdata/jellyfin/config:/config
+      - /mnt/alexandria/appdata/jellyfin/cache:/cache
+      - type: bind
+        source: /mnt/alexandria/media
+        target: /media
+    restart: unless-stopped

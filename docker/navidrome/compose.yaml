@@ -1,0 +1,14 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 994:1002 # navidrome:music
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    environment:
+      ND_SCANNER_PURGEMISSING: always
+    volumes:
+      - "/mnt/alexandria/appdata/navidrome:/data"
+      - "/mnt/alexandria/music:/music:ro"
+
