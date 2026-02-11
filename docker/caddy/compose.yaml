@@ -1,0 +1,20 @@
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    user: "992:1004"  # caddy:elofyra
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - /mnt/alexandria/appdata/caddy/data:/data
+      - /mnt/alexandria/appdata/caddy/config:/config
+    networks:
+      - elofyra
+
+networks:
+  elofyra:
+    external: true

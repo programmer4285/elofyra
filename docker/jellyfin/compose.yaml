@@ -2,6 +2,7 @@ services:
   jellyfin:
     image: jellyfin/jellyfin:10
     container_name: jellyfin
+    restart: unless-stopped
     user: "995:1001"  # jellyfin:media
     ports:
       - 8096:8096/tcp
@@ -14,4 +15,9 @@ services:
       - type: bind
         source: /mnt/alexandria/media
         target: /media
-    restart: unless-stopped
+    networks:
+      - elofyra
+
+networks:
+  elofyra:
+    external: true
