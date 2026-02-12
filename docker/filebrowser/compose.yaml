@@ -1,0 +1,18 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    restart: unless-stopped
+    user: "993:1003"  # filebrowser:cloud
+    ports:
+      - "8001:80"
+    volumes:
+      - /mnt/alexandria/cloud:/srv
+      - /mnt/alexandria/appdata/filebrowser/database:/database
+      - /mnt/alexandria/appdata/filebrowser/config:/config
+    networks:
+      - elofyra
+
+networks:
+  elofyra:
+    external: true

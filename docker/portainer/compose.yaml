@@ -3,7 +3,7 @@ services:
     image: portainer/portainer-ce:lts
     container_name: portainer
     restart: unless-stopped
-    user: "989:1004"  # portainer:elofyra
+    # user: "989:1004"  # portainer:elofyra
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /mnt/alexandria/appdata/portainer:/data
