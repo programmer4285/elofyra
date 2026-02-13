@@ -1,9 +1,12 @@
 services:
   filebrowser:
-    image: filebrowser/filebrowser:latest
+    image: filebrowser/filebrowser:s6
     container_name: filebrowser
     restart: unless-stopped
-    user: "993:1003"  # filebrowser:cloud
+    environment:
+      PUID: 993     # filebrowser
+      PGID: 1003    # cloud
+      UMASK: "002"  # grant group write access
     ports:
       - "8001:80"
     volumes:
