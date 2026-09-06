@@ -1,4 +1,4 @@
-.PHONY: up down backup_macos
+.PHONY: up down backup_macos backup_server
 
 up:
 	cd /home/eloquent/elofyra/docker/jellyfin && sudo docker compose up -d
@@ -18,3 +18,6 @@ down:
 
 backup_macos:
 	caffeinate -is ./scripts/backup_macos.sh
+
+backup_server:
+	sudo ./scripts/backup_server.sh
