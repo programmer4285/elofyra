@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DEST="/Volumes/alexandria/cloud/macos"
-LOG_FILE="macos_backup_log.txt"
+LOG_FILE="backup_macos.log"
 
 EXCLUDES=(
   --exclude ".git/**"
@@ -14,6 +14,7 @@ EXCLUDES=(
   --exclude "Thumbs.db"
   --exclude "*.tmp"
   --exclude "*.log"
+  --exclude ".venv/**"
 )
 
 SOURCES=(
@@ -25,7 +26,7 @@ SOURCES=(
   "scripts"
 )
 
-if ! mount | grep -q "${DEST}"; then
+if ! mount | grep -q "/Volumes/alexandria"; then
   echo "ERROR: ${DEST} is not mounted. Aborting backup." >&2
   exit 1
 fi
