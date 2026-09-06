@@ -8,6 +8,8 @@
 # immich
 **/immich/ml/**
 **/thumbnails/**
+**/thumbs/**
+**/encoded-video/**
 
 # jellyfin
 **/transcoding-temp/**
