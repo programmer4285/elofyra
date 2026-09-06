@@ -1,0 +1,17 @@
+# global
+**/cache/**
+**/transcodes/**
+**/logs/**
+**/tmp/**
+**/.cache/**
+
+# immich
+**/immich/ml/**
+**/thumbnails/**
+
+# jellyfin
+**/transcoding-temp/**
+
+# portainer
+**/portainer/**
+
